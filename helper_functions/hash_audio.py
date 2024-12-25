@@ -36,10 +36,11 @@ def hash_spectrograms(file_path, hash_func=imagehash.phash):
     # mfccs_hash = hash_func(mfccs_image)
     
     # return main_spectrogram_hash, mfccs_hash
+    print(sr)
     return stacked_image_hash
 
-wav_file = "./data/Nina Cried Power [original].wav"  
-wav_file2 = "./data/Nina Cried Power [vocals].wav"  
+wav_file = "./data/Alkanas(original).wav"  
+wav_file2 = "./data/Nina Cried Power [original] (1).wav"  
 main_hash = hash_spectrograms(wav_file)
 new_hash = hash_spectrograms(wav_file2)
 hamming_distance = main_hash - new_hash
