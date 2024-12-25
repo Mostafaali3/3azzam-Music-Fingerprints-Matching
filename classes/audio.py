@@ -11,7 +11,7 @@ class Audio():
         
     def preprocess_data(self):
         self.cut_audio()
-        sf.write('./test.wav', self.data, self.sampling_rate)
+        # sf.write('./Alkanas(instruments)_22050.wav', self.data, self.sampling_rate)
     
     def hash_sound(self):
         pass 
@@ -36,7 +36,7 @@ class Audio():
 
 # Test
 # audio = Audio()
-# data , sr = librosa.load('./data/Alkanas(original).wav')
+# data , sr = librosa.load('./data/Alkanas(instruments).wav')
 # audio.data = data
 # audio.sampling_rate = sr
 # audio.preprocess_data() 
