@@ -3,6 +3,7 @@
   <qresource>
 
     <file>..\icons_setup\icons\logo.png</file>
+    <file>..\icons_setup\icons\logo2.png</file>
     <file>..\icons_setup\icons\play.png</file>
     <file>..\icons_setup\icons\pause.png</file>
     <file>..\icons_setup\icons\replay.png</file>

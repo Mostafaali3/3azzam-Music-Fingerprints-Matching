@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QFrame, QTableWidget, QTableWidgetItem, QPushButton, QHeaderView, QVBoxLayout
+from PyQt5.QtWidgets import QApplication, QMainWindow, QFrame, QTableWidget, QTableWidgetItem, QPushButton, QHeaderView, QVBoxLayout, QHBoxLayout
 from PyQt5.QtCore import Qt
 from PyQt5.uic import loadUi
 from PyQt5.QtGui import QIcon
@@ -15,8 +15,8 @@ class MainWindow(QMainWindow):
         self.setWindowTitle('Music Similarity Analysis')
         self.setWindowIcon(QIcon('icons_setup/icons/logo.png'))
 
-        self.play_icon = QIcon(':/icons/play.png')
-        self.pause_icon = QIcon(':/icons/pause.png')
+        self.play_icon = QIcon(':/icons_setup/icons/play.png')
+        self.pause_icon = QIcon(':/icons_setup/icons/pause.png')
 
         # Find the tableFrame
         self.tableFrame = self.findChild(QFrame, 'tableFrame')
@@ -33,6 +33,9 @@ class MainWindow(QMainWindow):
         self.table.setColumnCount(4)
         self.table.setHorizontalHeaderLabels(["Rank", "Song Name", "Matching %", "Controls"])
 
+        self.table.verticalHeader().setVisible(False)
+
+
         # Style table
         self.table.setStyleSheet("""
             QTableWidget {
@@ -40,7 +43,7 @@ class MainWindow(QMainWindow):
                 color: #ffffff;
                 border: none;
                 gridline-color: #39bef7;
-                font-size: 14px;
+                font-size: 16px;
                 border-radius: 10px;
             }
             QTableWidget::item {
@@ -51,7 +54,6 @@ class MainWindow(QMainWindow):
             }
             QTableWidget::item:selected {
                 background-color: #1e3a5f;
-                border: 2px solid #39bef7;
             }
             QHeaderView::section {
                 background-color: #0f1729;
@@ -152,18 +154,19 @@ class MainWindow(QMainWindow):
             match_item.setFlags(match_item.flags() & ~Qt.ItemIsEditable)  
             self.table.setItem(row, 2, match_item)
 
-            # Play button
-            play_btn = QPushButton()  
-            play_btn.setIcon(self.play_icon) 
-            play_btn.setIconSize(QtCore.QSize(24, 24))
-            play_btn.setStyleSheet("padding: 0; border: none;")         
-            self.table.setCellWidget(row, 3, play_btn)
+            play_btn = QPushButton()
+            play_btn.setIcon(QIcon(":/icons_setup/icons/play.png"))
+            play_btn.setIconSize(QtCore.QSize(15, 15))
+
+            # Create container frame
+            container = QFrame()
+            layout = QHBoxLayout(container)
+            layout.setContentsMargins(0, 0, 0, 0)
+            layout.addWidget(play_btn, alignment=Qt.AlignCenter)
+
+            self.table.setCellWidget(row, 3, container)
 
         self.tableFrame.layout().addWidget(self.table)
-
-
-    def play_song(self, row):
-        print(f"Playing song at row {row + 1}")
 
 
 if __name__ == '__main__':

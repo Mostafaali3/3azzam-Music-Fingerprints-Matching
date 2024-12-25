@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>879</width>
-    <height>801</height>
+    <width>1124</width>
+    <height>843</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -113,10 +113,7 @@ QSlider::add-page:horizontal {
 </string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <property name="spacing">
-     <number>40</number>
-    </property>
+   <layout class="QGridLayout" name="gridLayout_2">
     <property name="leftMargin">
      <number>20</number>
     </property>
@@ -126,7 +123,10 @@ QSlider::add-page:horizontal {
     <property name="bottomMargin">
      <number>20</number>
     </property>
-    <item>
+    <property name="horizontalSpacing">
+     <number>40</number>
+    </property>
+    <item row="0" column="0">
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -573,6 +573,9 @@ font-weight:bold;</string>
               <layout class="QHBoxLayout" name="horizontalLayout_9">
                <item>
                 <widget class="QLabel" name="label_5">
+                 <property name="styleSheet">
+                  <string notr="true">font-size: 16px</string>
+                 </property>
                  <property name="text">
                   <string>First Song Percentage: </string>
                  </property>
@@ -593,6 +596,9 @@ font-weight:bold;</string>
                 <layout class="QHBoxLayout" name="horizontalLayout_12">
                  <item>
                   <widget class="QLabel" name="label_6">
+                   <property name="styleSheet">
+                    <string notr="true">font-size: 16px</string>
+                   </property>
                    <property name="text">
                     <string>Song 01 %</string>
                    </property>
@@ -619,8 +625,11 @@ font-weight:bold;</string>
                      <height>0</height>
                     </size>
                    </property>
+                   <property name="styleSheet">
+                    <string notr="true">font-size: 16px</string>
+                   </property>
                    <property name="text">
-                    <string>50</string>
+                    <string>100</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -646,6 +655,9 @@ font-weight:bold;</string>
                 <layout class="QHBoxLayout" name="horizontalLayout_10">
                  <item>
                   <widget class="QLabel" name="label_8">
+                   <property name="styleSheet">
+                    <string notr="true">font-size: 16px</string>
+                   </property>
                    <property name="text">
                     <string>Song 02 %</string>
                    </property>
@@ -672,8 +684,11 @@ font-weight:bold;</string>
                      <height>0</height>
                     </size>
                    </property>
+                   <property name="styleSheet">
+                    <string notr="true">font-size: 16px</string>
+                   </property>
                    <property name="text">
-                    <string>50</string>
+                    <string>0</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -702,7 +717,9 @@ font-weight:bold;</string>
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">color: #FB4141;</string>
+             <string notr="true">color: #ffffff;
+background-color: #142A4A;
+border-radius: 5px;</string>
             </property>
             <property name="frameShape">
              <enum>QFrame::StyledPanel</enum>
@@ -714,7 +731,7 @@ font-weight:bold;</string>
              <item>
               <widget class="QLabel" name="label_4">
                <property name="styleSheet">
-                <string notr="true"/>
+                <string notr="true">font-size: 16px</string>
                </property>
                <property name="text">
                 <string>You Should Upload Two Songs To Start Mixing !!</string>
@@ -732,26 +749,6 @@ font-weight:bold;</string>
        </layout>
       </item>
       <item>
-       <spacer name="verticalSpacer">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QLabel" name="logoLabel">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item>
        <spacer name="verticalSpacer_2">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
@@ -766,8 +763,11 @@ font-weight:bold;</string>
       </item>
      </layout>
     </item>
-    <item>
+    <item row="0" column="1">
      <layout class="QVBoxLayout" name="verticalLayout_2">
+      <property name="spacing">
+       <number>20</number>
+      </property>
       <property name="topMargin">
        <number>20</number>
       </property>
@@ -834,6 +834,47 @@ border-radius: 5px;
        </widget>
       </item>
       <item>
+       <widget class="QFrame" name="noMatchedFrame">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #142A4A;
+border-radius: 5px;</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_13">
+         <item>
+          <widget class="QLabel" name="label_9">
+           <property name="styleSheet">
+            <string notr="true">font-size: 16px</string>
+           </property>
+           <property name="text">
+            <string>Please, Upload at Least a Song to get Results !!</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
        <spacer name="verticalSpacer_4">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
@@ -845,6 +886,56 @@ border-radius: 5px;
          </size>
         </property>
        </spacer>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="0" colspan="2">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="topMargin">
+       <number>20</number>
+      </property>
+      <property name="bottomMargin">
+       <number>20</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>60</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #0f1729;
+    border-radius: 8px;
+    padding: 10px;
+    font-family: 'Great Vibes', cursive; /* Font with connected letters */
+    font-size: 24px; /* Bigger font size */
+    font-weight: normal; /* Most script fonts look better without bold */
+    color: #ffffff; /* Optional: White color for contrast */
+    letter-spacing: normal; /* Avoid extra spacing for connected fonts */
+}
+
+QPushButton:hover {
+    background-color: #0f1729;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>  Search For Your Favourite Song or Music</string>
+        </property>
+        <property name="icon">
+         <iconset resource="icons_setup/icons.qrc">
+          <normaloff>:/icons_setup/icons/logo2.png</normaloff>:/icons_setup/icons/logo2.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
