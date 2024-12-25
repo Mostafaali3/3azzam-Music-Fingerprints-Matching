@@ -1,0 +1,6 @@
+librosa
+pyqt5
+opencv-python
+numpy
+PIL
+imagehash
