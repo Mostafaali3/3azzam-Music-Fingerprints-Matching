@@ -8,6 +8,9 @@
     <file>..\icons_setup\icons\pause.png</file>
     <file>..\icons_setup\icons\replay.png</file>
     <file>..\icons_setup\icons\browse.png</file>
+    <file>..\icons_setup\icons\img.png</file>
+    <file>..\icons_setup\icons\tablePlay.png</file>
+    <file>..\icons_setup\icons\tablePause.png</file>
 
   </qresource>
 </RCC>

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1124</width>
-    <height>843</height>
+    <width>1167</width>
+    <height>1034</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -117,6 +117,9 @@ QSlider::add-page:horizontal {
     <property name="leftMargin">
      <number>20</number>
     </property>
+    <property name="topMargin">
+     <number>20</number>
+    </property>
     <property name="rightMargin">
      <number>20</number>
     </property>
@@ -131,12 +134,25 @@ QSlider::add-page:horizontal {
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
          <layout class="QVBoxLayout" name="verticalLayout_4">
           <property name="spacing">
-           <number>6</number>
+           <number>25</number>
           </property>
           <property name="topMargin">
-           <number>20</number>
+           <number>0</number>
           </property>
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -205,27 +221,89 @@ font-weight: bold;</string>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_9">
              <property name="spacing">
-              <number>15</number>
+              <number>10</number>
              </property>
              <property name="topMargin">
-              <number>20</number>
+              <number>0</number>
              </property>
              <item>
-              <widget class="QLabel" name="label">
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>40</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">font-size: 16px;
+              <layout class="QHBoxLayout" name="horizontalLayout_17">
+               <item>
+                <widget class="QPushButton" name="pushButton_3">
+                 <property name="minimumSize">
+                  <size>
+                   <width>100</width>
+                   <height>100</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>100</width>
+                   <height>100</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QPushButton {
+    background-color: #142A4A;
+    border-radius: 8px;
+    font-family: 'Great Vibes', cursive; /* Font with connected letters */
+    font-size: 28px; /* Bigger font size */
+    font-weight: bold; /* Most script fonts look better without bold */
+    color: #ffffff; /* Optional: White color for contrast */
+    letter-spacing: normal; /* Avoid extra spacing for connected fonts */
+}
+
+QPushButton:hover {
+    background-color: #142A4A;
+}
+</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="icons_setup/icons.qrc">
+                   <normaloff>:/icons_setup/icons/img.png</normaloff>:/icons_setup/icons/img.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>100</width>
+                   <height>100</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QVBoxLayout" name="verticalLayout_11">
+                 <item>
+                  <widget class="QLabel" name="label">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">font-size: 16px;
 font-weight:bold;</string>
-               </property>
-               <property name="text">
-                <string>Song 01 Name</string>
-               </property>
-              </widget>
+                   </property>
+                   <property name="text">
+                    <string>Song 01 Name</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
              </item>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_6">
@@ -327,9 +405,25 @@ QSlider::add-page:horizontal {
          </layout>
         </item>
         <item>
+         <spacer name="verticalSpacer_6">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
          <layout class="QVBoxLayout" name="verticalLayout_7">
+          <property name="spacing">
+           <number>25</number>
+          </property>
           <property name="topMargin">
-           <number>40</number>
+           <number>0</number>
           </property>
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_5">
@@ -398,27 +492,80 @@ font-weight: bold;</string>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_8">
              <property name="spacing">
-              <number>15</number>
+              <number>10</number>
              </property>
              <property name="topMargin">
-              <number>20</number>
+              <number>0</number>
              </property>
              <item>
-              <widget class="QLabel" name="label_2">
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>40</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">font-size: 16px;
+              <layout class="QHBoxLayout" name="horizontalLayout_18">
+               <item>
+                <widget class="QPushButton" name="pushButton_4">
+                 <property name="minimumSize">
+                  <size>
+                   <width>100</width>
+                   <height>100</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>100</width>
+                   <height>100</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QPushButton {
+    background-color: #142A4A;
+    border-radius: 8px;
+    font-family: 'Great Vibes', cursive; /* Font with connected letters */
+    font-size: 28px; /* Bigger font size */
+    font-weight: bold; /* Most script fonts look better without bold */
+    color: #ffffff; /* Optional: White color for contrast */
+    letter-spacing: normal; /* Avoid extra spacing for connected fonts */
+}
+
+QPushButton:hover {
+    background-color: #142A4A;
+}
+</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="icons_setup/icons.qrc">
+                   <normaloff>:/icons_setup/icons/img.png</normaloff>:/icons_setup/icons/img.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>100</width>
+                   <height>100</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QVBoxLayout" name="verticalLayout_12">
+                 <item>
+                  <widget class="QLabel" name="label_2">
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">font-size: 16px;
 font-weight:bold;</string>
-               </property>
-               <property name="text">
-                <string>Song 02 Name</string>
-               </property>
-              </widget>
+                   </property>
+                   <property name="text">
+                    <string>Song 02 Name</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
              </item>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_7">
@@ -520,9 +667,28 @@ QSlider::add-page:horizontal {
          </layout>
         </item>
         <item>
+         <spacer name="verticalSpacer_5">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
          <layout class="QVBoxLayout" name="verticalLayout_6">
+          <property name="spacing">
+           <number>25</number>
+          </property>
           <property name="topMargin">
-           <number>40</number>
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
           </property>
           <item>
            <widget class="QLabel" name="label_3">
@@ -534,11 +700,14 @@ QSlider::add-page:horizontal {
             </property>
             <property name="styleSheet">
              <string notr="true">margin: 0 10;
-font-size: 18px;
+font-size: 20px;
 font-weight:bold;</string>
             </property>
             <property name="text">
              <string>Song Mixer</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -564,7 +733,7 @@ font-weight:bold;</string>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_10">
              <property name="spacing">
-              <number>15</number>
+              <number>20</number>
              </property>
              <property name="topMargin">
               <number>20</number>
@@ -574,7 +743,7 @@ font-weight:bold;</string>
                <item>
                 <widget class="QLabel" name="label_5">
                  <property name="styleSheet">
-                  <string notr="true">font-size: 16px</string>
+                  <string notr="true">font-size: 18px</string>
                  </property>
                  <property name="text">
                   <string>First Song Percentage: </string>
@@ -597,7 +766,7 @@ font-weight:bold;</string>
                  <item>
                   <widget class="QLabel" name="label_6">
                    <property name="styleSheet">
-                    <string notr="true">font-size: 16px</string>
+                    <string notr="true">font-size: 18px</string>
                    </property>
                    <property name="text">
                     <string>Song 01 %</string>
@@ -626,7 +795,7 @@ font-weight:bold;</string>
                     </size>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">font-size: 16px</string>
+                    <string notr="true">font-size: 18px</string>
                    </property>
                    <property name="text">
                     <string>100</string>
@@ -656,7 +825,7 @@ font-weight:bold;</string>
                  <item>
                   <widget class="QLabel" name="label_8">
                    <property name="styleSheet">
-                    <string notr="true">font-size: 16px</string>
+                    <string notr="true">font-size: 18px</string>
                    </property>
                    <property name="text">
                     <string>Song 02 %</string>
@@ -685,7 +854,7 @@ font-weight:bold;</string>
                     </size>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">font-size: 16px</string>
+                    <string notr="true">font-size: 18px</string>
                    </property>
                    <property name="text">
                     <string>0</string>
@@ -699,6 +868,97 @@ font-weight:bold;</string>
                </item>
               </layout>
              </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_14">
+               <property name="topMargin">
+                <number>5</number>
+               </property>
+               <item>
+                <widget class="QSlider" name="progressbarSong3">
+                 <property name="minimumSize">
+                  <size>
+                   <width>230</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>400</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">/* Progress Bar Style (Horizontal Slider) */
+QSlider::groove:horizontal {
+    border: 1px solid #ffffff;   /* White border for the groove */
+    height: 10px;               /* Slightly taller for progress bar appearance */
+    background: #0f1729;        /* Dark background for the unused part */
+    border-radius: 5px;         /* Rounded corners */
+}
+
+QSlider::handle:horizontal {
+    background: transparent;    /* Transparent handle for progress bar effect */
+    border: none;               /* Remove the handle outline */
+    width: 0px;                 /* Hide the handle */
+    height: 0px;                /* No height for handle */
+}
+
+QSlider::sub-page:horizontal {
+    background: #ffffff;        /* White for the filled progress */
+    border: 1px solid #ffffff;  /* White border for sub-page */
+    height: 10px;               /* Matches groove height */
+    border-radius: 5px;         /* Rounded corners */
+}
+
+QSlider::add-page:horizontal {
+    background: #0f1729;        /* Dark background for unfilled progress */
+    border: 1px solid #ffffff;  /* White border for add-page */
+    height: 10px;               /* Matches groove height */
+    border-radius: 5px;         /* Rounded corners */
+}
+</string>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="playPauseSong3">
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="icons_setup/icons.qrc">
+                   <normaloff>:/icons_setup/icons/play.png</normaloff>:/icons_setup/icons/play.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>20</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="replaySong3">
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="icons_setup/icons.qrc">
+                   <normaloff>:/icons_setup/icons/replay.png</normaloff>:/icons_setup/icons/replay.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>25</width>
+                   <height>25</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
             </layout>
            </widget>
           </item>
@@ -707,7 +967,7 @@ font-weight:bold;</string>
             <property name="minimumSize">
              <size>
               <width>350</width>
-              <height>50</height>
+              <height>60</height>
              </size>
             </property>
             <property name="maximumSize">
@@ -730,14 +990,24 @@ border-radius: 5px;</string>
             <layout class="QHBoxLayout" name="horizontalLayout_2">
              <item>
               <widget class="QLabel" name="label_4">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
                <property name="styleSheet">
-                <string notr="true">font-size: 16px</string>
+                <string notr="true">font-size: 16px;
+font-weight: bold</string>
                </property>
                <property name="text">
                 <string>You Should Upload Two Songs To Start Mixing !!</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
                </property>
               </widget>
              </item>
@@ -746,20 +1016,20 @@ border-radius: 5px;</string>
           </item>
          </layout>
         </item>
+        <item>
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
        </layout>
-      </item>
-      <item>
-       <spacer name="verticalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
       </item>
      </layout>
     </item>
@@ -772,16 +1042,35 @@ border-radius: 5px;</string>
        <number>20</number>
       </property>
       <item>
+       <spacer name="verticalSpacer_9">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
        <widget class="QLabel" name="label_7">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>50</height>
+         </size>
+        </property>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>60</height>
+          <height>50</height>
          </size>
         </property>
         <property name="styleSheet">
          <string notr="true">margin: 0 10;
-font-size: 22px;
+font-size: 26px;
 font-weight:bold;</string>
         </property>
         <property name="text">
@@ -810,13 +1099,13 @@ font-weight:bold;</string>
         <property name="minimumSize">
          <size>
           <width>700</width>
-          <height>400</height>
+          <height>600</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>400</height>
+          <height>600</height>
          </size>
         </property>
         <property name="styleSheet">
@@ -861,7 +1150,8 @@ border-radius: 5px;</string>
          <item>
           <widget class="QLabel" name="label_9">
            <property name="styleSheet">
-            <string notr="true">font-size: 16px</string>
+            <string notr="true">font-size: 16px;
+font-weight: bold;</string>
            </property>
            <property name="text">
             <string>Please, Upload at Least a Song to get Results !!</string>
@@ -873,6 +1163,69 @@ border-radius: 5px;</string>
          </item>
         </layout>
        </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_8">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="topMargin">
+         <number>20</number>
+        </property>
+        <property name="bottomMargin">
+         <number>20</number>
+        </property>
+        <item>
+         <widget class="QPushButton" name="pushButton_2">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>60</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    background-color: #0f1729;
+    border-radius: 8px;
+    padding: 10px;
+    font-family: 'Great Vibes', cursive; /* Font with connected letters */
+    font-size: 28px; /* Bigger font size */
+    font-weight: bold; /* Most script fonts look better without bold */
+    color: #ffffff; /* Optional: White color for contrast */
+    letter-spacing: normal; /* Avoid extra spacing for connected fonts */
+}
+
+QPushButton:hover {
+    background-color: #0f1729;
+}
+</string>
+          </property>
+          <property name="text">
+           <string>  Search For Your Favourite Song or Music</string>
+          </property>
+          <property name="icon">
+           <iconset resource="icons_setup/icons.qrc">
+            <normaloff>:/icons_setup/icons/logo2.png</normaloff>:/icons_setup/icons/logo2.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>40</width>
+            <height>40</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
       <item>
        <spacer name="verticalSpacer_4">
@@ -889,55 +1242,31 @@ border-radius: 5px;</string>
       </item>
      </layout>
     </item>
-    <item row="1" column="0" colspan="2">
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <property name="topMargin">
-       <number>20</number>
+    <item row="3" column="0">
+     <spacer name="verticalSpacer_10">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
       </property>
-      <property name="bottomMargin">
-       <number>20</number>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
       </property>
-      <item>
-       <widget class="QPushButton" name="pushButton_2">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>60</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton {
-    background-color: #0f1729;
-    border-radius: 8px;
-    padding: 10px;
-    font-family: 'Great Vibes', cursive; /* Font with connected letters */
-    font-size: 24px; /* Bigger font size */
-    font-weight: normal; /* Most script fonts look better without bold */
-    color: #ffffff; /* Optional: White color for contrast */
-    letter-spacing: normal; /* Avoid extra spacing for connected fonts */
-}
-
-QPushButton:hover {
-    background-color: #0f1729;
-}
-</string>
-        </property>
-        <property name="text">
-         <string>  Search For Your Favourite Song or Music</string>
-        </property>
-        <property name="icon">
-         <iconset resource="icons_setup/icons.qrc">
-          <normaloff>:/icons_setup/icons/logo2.png</normaloff>:/icons_setup/icons/logo2.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>40</width>
-          <height>40</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-     </layout>
+     </spacer>
+    </item>
+    <item row="1" column="0">
+     <spacer name="verticalSpacer_11">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
     </item>
    </layout>
   </widget>
