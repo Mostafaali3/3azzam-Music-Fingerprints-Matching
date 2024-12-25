@@ -4,6 +4,9 @@ from PyQt5.QtCore import Qt
 from PyQt5.uic import loadUi
 from PyQt5.QtGui import QIcon
 from helper_function.compile_qrc import compile_qrc
+from classes.controller import Controller
+from classes.musicPlayer import MusicPlayer
+from classes.audio import Audio
 
 compile_qrc()
 from icons_setup.compiledIcons import *
@@ -167,6 +170,20 @@ class MainWindow(QMainWindow):
             self.table.setCellWidget(row, 3, container)
 
         self.tableFrame.layout().addWidget(self.table)
+        
+
+        self.browse_audio_1 = self.findChild(QPushButton, "browseSong1")
+        self.browse_audio_2 = self.findChild(QPushButton, "pushButton")
+        
+        self.audio_1 = Audio()
+        self.audio_2 = Audio()
+        self.mixed_audio = Audio()
+        
+        self.music_player_1 = MusicPlayer(self.audio_1)
+        self.music_player_2 = MusicPlayer(self.audio_2)
+        self.mixed_music_player = MusicPlayer(self.mixed_audio)
+        
+        self.controller = Controller(self.music_player_1, self.music_player_2, self.mixed_music_player, self.audio_1, self.audio_2, self.mixed_audio)
 
 
 if __name__ == '__main__':
