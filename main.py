@@ -186,10 +186,6 @@ class MainWindow(QMainWindow):
         self.audio_2 = Audio()
         self.mixed_audio = Audio()
         
-        self.music_player_1 = MusicPlayer(self.audio_1, self.progressbarSong1, self.playPauseSong1, self.replaySong1, self.play_icon, self.pause_icon)
-        self.music_player_2 = MusicPlayer(self.audio_2, self.progressbarSong2, self.playPauseSong2, self.replaySong2, self.play_icon, self.pause_icon)
-        self.mixed_music_player = MusicPlayer(self.mixed_audio, self.progressbarSong3, self.playPauseSong3, self.replaySong3, self.play_icon, self.pause_icon)
-
         self.progressbarSong1 = self.findChild(QSlider, 'progressbarSong1')
         self.progressbarSong2 = self.findChild(QSlider, 'progressbarSong2')
         self.progressbarSong3 = self.findChild(QSlider, 'progressbarSong3')
@@ -201,6 +197,11 @@ class MainWindow(QMainWindow):
         self.replaySong1 = self.findChild(QPushButton, 'replaySong1')
         self.replaySong2 = self.findChild(QPushButton, 'replaySong2')
         self.replaySong3 = self.findChild(QPushButton, 'replaySong3')
+        
+        self.music_player_1 = MusicPlayer(self.audio_1, self.progressbarSong1, self.playPauseSong1, self.replaySong1, self.play_icon, self.pause_icon)
+        self.music_player_2 = MusicPlayer(self.audio_2, self.progressbarSong2, self.playPauseSong2, self.replaySong2, self.play_icon, self.pause_icon)
+        self.mixed_music_player = MusicPlayer(self.mixed_audio, self.progressbarSong3, self.playPauseSong3, self.replaySong3, self.play_icon, self.pause_icon)
+
         
         self.controller = Controller(self.music_player_1, self.music_player_2, self.mixed_music_player, self.audio_1, self.audio_2, self.mixed_audio)
 
