@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QFrame, QTableWidget, QTableWidgetItem, QPushButton, QHeaderView, QVBoxLayout, QHBoxLayout, QFileDialog
+from PyQt5.QtWidgets import QApplication, QMainWindow, QFrame, QTableWidget, QTableWidgetItem, QPushButton, QHeaderView, QVBoxLayout, QHBoxLayout, QFileDialog, QSlider
 from PyQt5.QtCore import Qt
 from PyQt5.uic import loadUi
 from PyQt5.QtGui import QIcon
@@ -189,6 +189,18 @@ class MainWindow(QMainWindow):
         self.music_player_1 = MusicPlayer(self.audio_1)
         self.music_player_2 = MusicPlayer(self.audio_2)
         self.mixed_music_player = MusicPlayer(self.mixed_audio)
+
+        self.progressbarSong1 = self.findChild(QSlider, 'progressbarSong1')
+        self.progressbarSong2 = self.findChild(QSlider, 'progressbarSong2')
+        self.progressbarSong3 = self.findChild(QSlider, 'progressbarSong3')
+
+        self.playPauseSong1 = self.findChild(QPushButton, 'playPauseSong1')
+        self.playPauseSong2 = self.findChild(QPushButton, 'playPauseSong2')
+        self.playPauseSong3 = self.findChild(QPushButton, 'playPauseSong3')
+
+        self.replaySong1 = self.findChild(QPushButton, 'replaySong1')
+        self.replaySong2 = self.findChild(QPushButton, 'replaySong2')
+        self.replaySong3 = self.findChild(QPushButton, 'replaySong3')
         
         self.controller = Controller(self.music_player_1, self.music_player_2, self.mixed_music_player, self.audio_1, self.audio_2, self.mixed_audio)
 
