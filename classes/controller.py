@@ -6,3 +6,7 @@ class Controller():
         self.music_player_1 = music_player_1
         self.music_player_2 = music_player_2
         self.mixed_music_player = mixed_music_player
+        self.search_list = []
+        
+    def check_similarity(self):
+        pass
