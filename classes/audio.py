@@ -14,6 +14,7 @@ class Audio():
         self.unified_sampling_rate = 22050
         self.mfccs = None
         self.features = None
+        self.song_name = "untitled"
         
     def preprocess_data(self):
         self.cut_audio()

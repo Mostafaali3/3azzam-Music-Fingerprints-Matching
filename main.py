@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QFrame, QTableWidget, QTableWidgetItem, QPushButton, QHeaderView, QVBoxLayout, QHBoxLayout
+from PyQt5.QtWidgets import QApplication, QMainWindow, QFrame, QTableWidget, QTableWidgetItem, QPushButton, QHeaderView, QVBoxLayout, QHBoxLayout, QFileDialog
 from PyQt5.QtCore import Qt
 from PyQt5.uic import loadUi
 from PyQt5.QtGui import QIcon
@@ -7,6 +7,7 @@ from helper_function.compile_qrc import compile_qrc
 from classes.controller import Controller
 from classes.musicPlayer import MusicPlayer
 from classes.audio import Audio
+import librosa
 
 compile_qrc()
 from icons_setup.compiledIcons import *
@@ -174,6 +175,8 @@ class MainWindow(QMainWindow):
 
         self.browse_audio_1 = self.findChild(QPushButton, "browseSong1")
         self.browse_audio_2 = self.findChild(QPushButton, "pushButton")
+        self.browse_audio_1.clicked.connect(lambda : self.browse_audio(1))
+        self.browse_audio_2.clicked.connect(lambda : self.browse_audio(2))
         
         self.audio_1 = Audio()
         self.audio_2 = Audio()
@@ -185,6 +188,20 @@ class MainWindow(QMainWindow):
         
         self.controller = Controller(self.music_player_1, self.music_player_2, self.mixed_music_player, self.audio_1, self.audio_2, self.mixed_audio)
 
+
+    def browse_audio(self, player_number):
+        file_path, _ = QFileDialog.getOpenFileName(self,'Open File','', 'WAV Files (*.wav)')
+        if file_path.endswith('.wav'):
+            data, sample_rate = librosa.load(file_path, mono=True)
+            if player_number == 1:
+                self.audio_1.data = data
+                self.audio_1.sampling_rate = sample_rate
+                self.music_player_1.loaded = True
+            else:
+                self.audio_2.data = data
+                self.audio_2.sampling_rate = sample_rate
+                self.music_player_2.loaded = True    
+                # print(file_path, player_number)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
