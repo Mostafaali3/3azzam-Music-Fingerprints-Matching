@@ -1,8 +1,9 @@
 import csv
 from classes.audio import Audio
+from copy import deepcopy
 
 class Controller():
-    def __init__(self, music_player_1, music_player_2,mixed_music_player, audio_1, audio_2, mixed_audio):
+    def __init__(self, music_player_1, music_player_2,mixed_music_player, audio_1:Audio, audio_2:Audio, mixed_audio:Audio):
         self.audio_1 = audio_1
         self.audio_2 = audio_2
         self.mixed_audio = mixed_audio
@@ -37,6 +38,11 @@ class Controller():
             self.top_5_audio_instances_list.append(audio_obj)
             print(f'{song_name} --- {self.search_list[idx][1]}')
     
+    def mix_audio(self, weight):
+        new_data = self.audio_1.mix_with_friend(self.audio_2)
+        self.mixed_audio.data = deepcopy(new_data)
+        self.mixed_audio.sampling_rate = max(self.audio_1.sampling_rate, self.audio_2.sampling_rate)
+        self.mixed_music_player.loaded = True
 # Test
 # cont = Controller(None, None , None ,None , None ,None)
 # cont.import_csv_hash_data()

@@ -2,6 +2,7 @@ import librosa
 import numpy as np
 from PIL import Image
 import imagehash
+from copy import deepcopy
 
 # import soundfile as sf
 class Audio():
@@ -74,12 +75,12 @@ class Audio():
                 audio_1 = self.data[:min_len]
                 audio_2 = friend.data[:min_len]
                 mixed_audio = weight * audio_1 + (1-weight) * audio_2
-                friend.data = mixed_audio
-                return friend
+                data = deepcopy(mixed_audio)
+                return data
             elif len(friend.data) > 0:
-                return friend.data 
+                return deepcopy(friend.data) 
             elif len(self.data) > 0:
-                return self.data 
+                return deepcopy(self.data) 
 
 # Hashing Implementation Test
 # audio1 = Audio()

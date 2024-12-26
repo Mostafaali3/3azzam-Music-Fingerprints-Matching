@@ -204,7 +204,11 @@ class MainWindow(QMainWindow):
 
         
         self.controller = Controller(self.music_player_1, self.music_player_2, self.mixed_music_player, self.audio_1, self.audio_2, self.mixed_audio)
-
+        
+        
+        self.mixer_frame = self.findChild(QFrame, "mixerFrame")
+        self.mixer_frame.hide()
+        self.mixer_error_frame = self.findChild(QFrame, "errorFrame")
 
     def browse_audio(self, player_number):
         file_path, _ = QFileDialog.getOpenFileName(self,'Open File','', 'WAV Files (*.wav)')
@@ -215,7 +219,12 @@ class MainWindow(QMainWindow):
             else:
                 self.audio_2.load_audio(file_path)
                 self.music_player_2.loaded = True    
+            self.handle_mixer_frame()
 
+    def handle_mixer_frame(self):
+        if self.music_player_1.loaded and self.music_player_2.loaded:
+            self.mixer_frame.show()
+            self.mixer_error_frame.hide()
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = MainWindow()
