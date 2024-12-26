@@ -7,6 +7,7 @@ from helper_function.compile_qrc import compile_qrc
 from classes.controller import Controller
 from classes.musicPlayer import MusicPlayer
 from classes.audio import Audio
+import sounddevice as sd
 import librosa
 
 compile_qrc()
@@ -31,6 +32,8 @@ class MainWindow(QMainWindow):
             print("Error: tableFrame not found in the UI file.")
             return
         
+        self.no_matched_frame = self.findChild(QFrame , "noMatchedFrame")  
+        self.tableFrame.hide()      
         self.setup_table()
 
     def setup_table(self):
@@ -214,7 +217,9 @@ class MainWindow(QMainWindow):
         self.weight_slider.valueChanged.connect(lambda : self.controller.mix_audio(self.weight_slider.value()/100))
         
         self.search_button = self.findChild(QPushButton, "searchButton")
-        self.search_button.clicked.connect(self.controller.search)
+        self.search_button.clicked.connect(self.update_table)
+        
+        self.table_songs_play_status = [False,False,False,False,False]
 
     def browse_audio(self, player_number):
         file_path, _ = QFileDialog.getOpenFileName(self,'Open File','', 'WAV Files (*.wav)')
@@ -231,6 +236,37 @@ class MainWindow(QMainWindow):
         if self.music_player_1.loaded and self.music_player_2.loaded:
             self.mixer_frame.show()
             self.mixer_error_frame.hide()
+            
+    def update_table(self):
+        self.no_matched_frame.hide()
+        self.tableFrame.show()
+        self.controller.search()
+        for row_idx in range(5):
+            song_name = QTableWidgetItem(self.controller.top_5_audio_instances_list[row_idx].song_name)
+            song_similarity_index = QTableWidgetItem(f'{self.controller.search_list[row_idx][1] * 100:.1f}%')
+            self.table.setItem(row_idx , 1 , song_name)
+            self.table.setItem(row_idx , 2 ,song_similarity_index )
+            
+            container = self.table.cellWidget(row_idx, 3)  
+            if container:  
+                play_btn = container.findChild(QPushButton)  
+                if play_btn:  
+                    song_name_text = self.controller.top_5_audio_instances_list[row_idx].song_name
+                    play_btn.clicked.connect(lambda _, song=song_name_text, row_index = row_idx , current_play_btn = play_btn: self.table_play_button_clicked(current_play_btn , song, row_index))
+    
+    
+    def table_play_button_clicked(self ,play_btn , song_name , row_idx):
+        if (self.table_songs_play_status[row_idx] == False):
+            self.table_songs_play_status[row_idx] = True
+            song_data , sr = librosa.load(f'./data/{song_name}.wav')
+            sd.play(song_data , sr)
+            play_btn.setIcon(QIcon(":/icons_setup/icons/tablePause.png"))
+        else:
+            self.table_songs_play_status[row_idx] = False
+            sd.stop()
+            play_btn.setIcon(QIcon(":/icons_setup/icons/tablePlay.png"))
+            
+            
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = MainWindow()
