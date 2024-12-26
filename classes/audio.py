@@ -58,6 +58,14 @@ class Audio():
         similarity_score = 1 - hamming_distance / len(self.hashing_result.hash.flatten())
         
         return similarity_score
+    
+    def load_audio(self, file_path):
+        data, sample_rate = librosa.load(file_path, mono=True)
+        self.data = data
+        self.sampling_rate = sample_rate
+    
+    def mix_with_friend(self):
+        pass
 
 
 # Hashing Implementation Test

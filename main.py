@@ -196,16 +196,12 @@ class MainWindow(QMainWindow):
     def browse_audio(self, player_number):
         file_path, _ = QFileDialog.getOpenFileName(self,'Open File','', 'WAV Files (*.wav)')
         if file_path.endswith('.wav'):
-            data, sample_rate = librosa.load(file_path, mono=True)
             if player_number == 1:
-                self.audio_1.data = data
-                self.audio_1.sampling_rate = sample_rate
+                self.audio_1.load_audio(file_path)
                 self.music_player_1.loaded = True
             else:
-                self.audio_2.data = data
-                self.audio_2.sampling_rate = sample_rate
+                self.audio_2.load_audio(file_path)
                 self.music_player_2.loaded = True    
-                # print(file_path, player_number)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
