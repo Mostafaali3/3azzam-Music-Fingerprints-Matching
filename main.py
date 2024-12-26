@@ -217,12 +217,14 @@ class MainWindow(QMainWindow):
         self.mixer_error_frame = self.findChild(QFrame, "errorFrame")
         
         self.weight_slider = self.findChild(QSlider, "mixerSlider")
-        self.weight_slider.valueChanged.connect(lambda : self.controller.mix_audio(self.weight_slider.value()/100))
+        self.weight_slider.valueChanged.connect(lambda : self.handle_slider_values())
         
         self.search_button = self.findChild(QPushButton, "searchButton")
         self.search_button.clicked.connect(self.update_table)
         self.music_name_label_1 = self.findChild(QLabel, "label")
         self.music_name_label_2 = self.findChild(QLabel, "label_2")
+        self.audio_1_weight_label = self.findChild(QLabel, "song1Percentage")
+        self.audio_2_weight_label = self.findChild(QLabel, "song2Percentage")
         
 
     def browse_audio(self, player_number):
@@ -240,6 +242,11 @@ class MainWindow(QMainWindow):
                     self.music_name_label_2.setText((file_path.split('/')[-1]).split('.')[0])
             self.handle_mixer_frame()
 
+    def handle_slider_values(self):
+        self.controller.mix_audio(self.weight_slider.value()/100)
+        self.audio_1_weight_label.setText(f"{self.weight_slider.value()}%")
+        self.audio_2_weight_label.setText(f"{100 - self.weight_slider.value()}%")
+    
     def handle_mixer_frame(self):
         if self.music_player_1.loaded and self.music_player_2.loaded:
             self.mixer_frame.show()

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1167</width>
-    <height>1034</height>
+    <width>1171</width>
+    <height>1043</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -758,6 +758,9 @@ font-weight:bold;</string>
                </item>
                <item>
                 <widget class="QSlider" name="mixerSlider">
+                 <property name="maximum">
+                  <number>100</number>
+                 </property>
                  <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
@@ -775,7 +778,7 @@ font-weight:bold;</string>
                     <string notr="true">font-size: 18px</string>
                    </property>
                    <property name="text">
-                    <string>Song 01 %</string>
+                    <string>Song 01</string>
                    </property>
                   </widget>
                  </item>
@@ -796,7 +799,7 @@ font-weight:bold;</string>
                   <widget class="QLabel" name="song1Percentage">
                    <property name="minimumSize">
                     <size>
-                     <width>30</width>
+                     <width>50</width>
                      <height>0</height>
                     </size>
                    </property>
@@ -804,7 +807,7 @@ font-weight:bold;</string>
                     <string notr="true">font-size: 18px</string>
                    </property>
                    <property name="text">
-                    <string>100</string>
+                    <string>0%</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -834,7 +837,7 @@ font-weight:bold;</string>
                     <string notr="true">font-size: 18px</string>
                    </property>
                    <property name="text">
-                    <string>Song 02 %</string>
+                    <string>Song 02</string>
                    </property>
                   </widget>
                  </item>
@@ -855,7 +858,7 @@ font-weight:bold;</string>
                   <widget class="QLabel" name="song2Percentage">
                    <property name="minimumSize">
                     <size>
-                     <width>30</width>
+                     <width>50</width>
                      <height>0</height>
                     </size>
                    </property>
@@ -863,7 +866,7 @@ font-weight:bold;</string>
                     <string notr="true">font-size: 18px</string>
                    </property>
                    <property name="text">
-                    <string>0</string>
+                    <string>100%</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
