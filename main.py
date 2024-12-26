@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QFrame, QTableWidget, QTableWidgetItem, QPushButton, QHeaderView, QVBoxLayout, QHBoxLayout, QFileDialog, QSlider
+from PyQt5.QtWidgets import QApplication, QMainWindow, QFrame, QTableWidget, QTableWidgetItem, QPushButton, QHeaderView, QVBoxLayout, QHBoxLayout, QFileDialog, QSlider, QLabel
 from PyQt5.QtCore import Qt
 from PyQt5.uic import loadUi
 from PyQt5.QtGui import QIcon
@@ -221,6 +221,8 @@ class MainWindow(QMainWindow):
         
         self.search_button = self.findChild(QPushButton, "searchButton")
         self.search_button.clicked.connect(self.update_table)
+        self.music_name_label_1 = self.findChild(QLabel, "label")
+        self.music_name_label_2 = self.findChild(QLabel, "label_2")
         
 
     def browse_audio(self, player_number):
@@ -229,9 +231,13 @@ class MainWindow(QMainWindow):
             if player_number == 1:
                 self.audio_1.load_audio(file_path)
                 self.music_player_1.loaded = True
+                if file_path:
+                    self.music_name_label_1.setText((file_path.split('/')[-1]).split('.')[0])
             else:
                 self.audio_2.load_audio(file_path)
-                self.music_player_2.loaded = True    
+                self.music_player_2.loaded = True
+                if file_path:   
+                    self.music_name_label_2.setText((file_path.split('/')[-1]).split('.')[0])
             self.handle_mixer_frame()
 
     def handle_mixer_frame(self):
