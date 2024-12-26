@@ -47,30 +47,31 @@ class Audio():
             mfccs = librosa.feature.mfcc(y=self.data, sr=self.sampling_rate, n_mfcc=13)
             self.mfccs = (255 * (mfccs - np.min(mfccs)) / (np.max(mfccs) - np.min(mfccs))).astype(np.uint8)
     
-    def create_constellation_map(self):
-        if self.data is not None:
-            # Higher resolution spectrogram
-            spectrogram = librosa.stft(self.data, n_fft=4096, hop_length=512)
-            spectrogram_db = librosa.amplitude_to_db(abs(spectrogram))
+    # def create_constellation_map(self):
+    #     if self.data is not None:
+    #         # Higher resolution spectrogram
+    #         spectrogram = librosa.stft(self.data, n_fft=4096, hop_length=512)
+    #         spectrogram_db = librosa.amplitude_to_db(abs(spectrogram))
             
-            # Improved peak detection parameters
-            peaks = librosa.util.peak_pick(spectrogram_db,
-                                        pre_max=30,
-                                        post_max=30,
-                                        pre_avg=30,
-                                        post_avg=30,
-                                        delta=0.8,  # Higher threshold
-                                        wait=25)    # Increased wait time
+    #         # Improved peak detection parameters
+    #         peaks = librosa.util.peak_pick(spectrogram_db,
+    #                                     pre_max=30,
+    #                                     post_max=30,
+    #                                     pre_avg=30,
+    #                                     post_avg=30,
+    #                                     delta=0.8,  # Higher threshold
+    #                                     wait=25)    # Increased wait time
             
-            # Create fingerprint map
-            peak_map = np.zeros_like(spectrogram_db)
-            peak_map[peaks] = 255
+    #         # Create fingerprint map
+    #         peak_map = np.zeros_like(spectrogram_db)
+    #         peak_map[peaks] = 255
             
-            # Apply target zone analysis (Shazam-like approach)
-            target_map = self.create_target_zones(peak_map)
-            self.features = Image.fromarray(target_map.astype(np.uint8))
-            return self.features
+    #         # Apply target zone analysis (Shazam-like approach)
+    #         target_map = self.create_target_zones(peak_map)
+    #         self.features = Image.fromarray(target_map.astype(np.uint8))
+    #         return self.features
 
+    # Works Better
     def create_constellation_map(self):
         if self.data is not None:
             spectrogram = librosa.stft(self.data, n_fft=4096, hop_length=512)
