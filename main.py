@@ -33,8 +33,11 @@ class MainWindow(QMainWindow):
             return
         
         self.no_matched_frame = self.findChild(QFrame , "noMatchedFrame")  
-        self.tableFrame.hide()      
+        self.tableFrame.hide() 
+        self.table_songs_play_status = [False,False,False,False,False]
+        self.table_play_buttons_list = []
         self.setup_table()
+        self.init_table_play_buttons()
 
     def setup_table(self):
 
@@ -219,7 +222,6 @@ class MainWindow(QMainWindow):
         self.search_button = self.findChild(QPushButton, "searchButton")
         self.search_button.clicked.connect(self.update_table)
         
-        self.table_songs_play_status = [False,False,False,False,False]
 
     def browse_audio(self, player_number):
         file_path, _ = QFileDialog.getOpenFileName(self,'Open File','', 'WAV Files (*.wav)')
@@ -243,21 +245,27 @@ class MainWindow(QMainWindow):
         self.controller.search()
         for row_idx in range(5):
             song_name = QTableWidgetItem(self.controller.top_5_audio_instances_list[row_idx].song_name)
+            song_name.setFlags(song_name.flags() & ~Qt.ItemIsEditable)  
             song_similarity_index = QTableWidgetItem(f'{self.controller.search_list[row_idx][1] * 100:.1f}%')
+            song_similarity_index.setFlags(song_similarity_index.flags() & ~Qt.ItemIsEditable)  
             self.table.setItem(row_idx , 1 , song_name)
             self.table.setItem(row_idx , 2 ,song_similarity_index )
             
+    def init_table_play_buttons(self):
+        for row_idx in range(5):
             container = self.table.cellWidget(row_idx, 3)  
             if container:  
                 play_btn = container.findChild(QPushButton)  
                 if play_btn:  
-                    song_name_text = self.controller.top_5_audio_instances_list[row_idx].song_name
-                    play_btn.clicked.connect(lambda _, song=song_name_text, row_index = row_idx , current_play_btn = play_btn: self.table_play_button_clicked(current_play_btn , song, row_index))
+                    self.table_play_buttons_list.append(play_btn)
+                    play_btn.clicked.connect(lambda _,row_index = row_idx:self.table_play_button_clicked(row_index))
+        
     
-    
-    def table_play_button_clicked(self ,play_btn , song_name , row_idx):
+    def table_play_button_clicked(self , row_idx):
+        play_btn = self.table_play_buttons_list[row_idx]
         if (self.table_songs_play_status[row_idx] == False):
             self.table_songs_play_status[row_idx] = True
+            song_name = self.controller.top_5_audio_instances_list[row_idx].song_name
             song_data , sr = librosa.load(f'./data/{song_name}.wav')
             sd.play(song_data , sr)
             play_btn.setIcon(QIcon(":/icons_setup/icons/tablePause.png"))

@@ -36,7 +36,7 @@ class Controller():
             audio_obj.song_name = song_name
             audio_obj.load_audio(f'./data/{self.search_list[idx][0]}')
             self.top_5_audio_instances_list.append(audio_obj)
-            print(f'{song_name} --- {self.search_list[idx][1]}')
+            # print(f'{song_name} --- {self.search_list[idx][1]}')
     
     def mix_audio(self, weight):
         new_data = self.audio_1.mix_with_friend(self.audio_2, weight)
