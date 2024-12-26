@@ -67,9 +67,19 @@ class Audio():
         self.data = data
         self.sampling_rate = sample_rate
     
-    def mix_with_friend(self, friend):
+    def mix_with_friend(self, friend, weight):
         if isinstance(friend, self):
-            min_len = min(len(self.data))
+            if len(friend.data) > 0 and len(self.data) > 0:
+                min_len = min(len(self.data), len(friend.data))
+                audio_1 = self.data[:min_len]
+                audio_2 = friend.data[:min_len]
+                mixed_audio = weight * audio_1 + (1-weight) * audio_2
+                friend.data = mixed_audio
+                return friend
+            elif len(friend.data) > 0:
+                return friend.data 
+            elif len(self.data) > 0:
+                return self.data 
 
 # Hashing Implementation Test
 # audio1 = Audio()
