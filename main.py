@@ -209,6 +209,12 @@ class MainWindow(QMainWindow):
         self.mixer_frame = self.findChild(QFrame, "mixerFrame")
         self.mixer_frame.hide()
         self.mixer_error_frame = self.findChild(QFrame, "errorFrame")
+        
+        self.weight_slider = self.findChild(QSlider, "mixerSlider")
+        self.weight_slider.valueChanged.connect(lambda : self.controller.mix_audio(self.weight_slider.value()/100))
+        
+        self.search_button = self.findChild(QPushButton, "searchButton")
+        self.search_button.clicked.connect(self.controller.search)
 
     def browse_audio(self, player_number):
         file_path, _ = QFileDialog.getOpenFileName(self,'Open File','', 'WAV Files (*.wav)')

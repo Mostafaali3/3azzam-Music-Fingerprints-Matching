@@ -69,7 +69,7 @@ class Audio():
         self.sampling_rate = sample_rate
     
     def mix_with_friend(self, friend, weight):
-        if isinstance(friend, self):
+        if isinstance(friend,Audio):
             if len(friend.data) > 0 and len(self.data) > 0:
                 min_len = min(len(self.data), len(friend.data))
                 audio_1 = self.data[:min_len]
