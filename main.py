@@ -22,6 +22,9 @@ class MainWindow(QMainWindow):
         self.play_icon = QIcon(':/icons_setup/icons/play.png')
         self.pause_icon = QIcon(':/icons_setup/icons/pause.png')
 
+        self.table_play_icon = QIcon(':/icons_setup/icons/tablePlay.png')
+        self.table_pause_icon = QIcon(':/icons_setup/icons/tablePause.png')
+
         # Find the tableFrame
         self.tableFrame = self.findChild(QFrame, 'tableFrame')
         if not self.tableFrame:
@@ -33,7 +36,7 @@ class MainWindow(QMainWindow):
     def setup_table(self):
 
         self.table = QTableWidget()
-        self.table.setRowCount(4)
+        self.table.setRowCount(5)
         self.table.setColumnCount(4)
         self.table.setHorizontalHeaderLabels(["Rank", "Song Name", "Matching %", "Controls"])
 
@@ -134,12 +137,13 @@ class MainWindow(QMainWindow):
             (1, "Bohemian Rhapsody - Queen", "98.5%"),
             (2, "Hotel California - Eagles", "95.2%"),
             (3, "Stairway to Heaven - Led Zeppelin", "92.8%"),
-            (4, "Sweet Child O' Mine - Guns N' Roses", "90.1%")
+            (4, "Sweet Child O' Mine - Guns N' Roses", "90.1%"),
+            (5, "Imagine - John Lennon", "88.7%"),
         ]
 
         for row, (rank, song, match) in enumerate(dummy_data):
             # Set row height
-            self.table.setRowHeight(row, 80) 
+            self.table.setRowHeight(row, 100) 
 
             # Rank
             rank_item = QTableWidgetItem(str(rank))
@@ -159,7 +163,7 @@ class MainWindow(QMainWindow):
             self.table.setItem(row, 2, match_item)
 
             play_btn = QPushButton()
-            play_btn.setIcon(QIcon(":/icons_setup/icons/play.png"))
+            play_btn.setIcon(QIcon(":/icons_setup/icons/tablePlay.png"))
             play_btn.setIconSize(QtCore.QSize(15, 15))
 
             # Create container frame
