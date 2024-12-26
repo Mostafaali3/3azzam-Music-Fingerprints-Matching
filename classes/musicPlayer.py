@@ -19,6 +19,13 @@ class MusicPlayer:
         
         self.playPauseButton.clicked.connect(self.play_pause)
         self.replayButton.clicked.connect(self.replay)
+
+        self.progressbarSlider.sliderPressed.connect(self.on_slider_pressed)
+        self.progressbarSlider.sliderReleased.connect(self.on_slider_released)
+        self.progressbarSlider.valueChanged.connect(self.on_slider_changed)
+        
+        self.is_seeking = False
+        self.was_playing = False
         
         self.playIcon = PlayIcon
         self.pauseIcon = PauseIcon
@@ -55,6 +62,63 @@ class MusicPlayer:
                 callback=self._audio_callback
             )
     
+    def on_slider_pressed(self):
+        """Handle slider press - pause but maintain state"""
+        if not self.loaded:
+            return
+            
+        self.is_seeking = True
+        self.was_playing = self.is_playing
+        
+        # Always stop playback during seeking
+        if self.stream and self.stream.active:
+            self.stream.stop()
+            self.timer.stop()
+
+    def on_slider_released(self):
+        """Handle slider release - update position and resume if needed"""
+        if not self.loaded:
+            return
+            
+        self.is_seeking = False
+        value = self.progressbarSlider.value()
+        total_frames = len(self.current_audio.data)
+        self.current_frame = int((value / 100) * total_frames)
+        
+        if self.was_playing:
+            # Restart stream from new position
+            if self.stream:
+                self.stream.start()
+                self.is_playing = True
+                self.timer.start()
+
+    def on_slider_changed(self, value):
+        """Update position while sliding"""
+        if not self.loaded:
+            return
+            
+        # Allow updates even when not seeking
+        total_frames = len(self.current_audio.data)
+        self.current_frame = int((value / 100) * total_frames)
+
+    def update_progress(self):
+        """Update slider position during playback"""
+        if not self.loaded or self.is_seeking:
+            return
+            
+        total_frames = len(self.current_audio.data)
+        progress = (self.current_frame / total_frames) * 100
+        
+        if self.is_playing:
+            self.progressbarSlider.blockSignals(True)
+            self.progressbarSlider.setValue(int(progress))
+            self.progressbarSlider.blockSignals(False)
+        
+        if progress >= 100:
+            self.pause()
+            self.current_frame = 0
+            self.playPauseButton.setIcon(self.playIcon)
+
     def _audio_callback(self, outdata, frames, time, status):
         if self.current_frame + frames > len(self.current_audio.data):
             # If we're at the end of the audio
@@ -76,7 +140,7 @@ class MusicPlayer:
     def play_pause(self):
         if not self.loaded:
             return
-        
+
         if self.is_playing:
             self.pause()
         else:
@@ -116,23 +180,6 @@ class MusicPlayer:
             if self.stream and self.stream.active:
                 self.stream.stop()
             self.stream.start()
-    
-    def update_progress(self):
-        if not self.loaded or not self.is_playing:
-            return
-        
-        print('Updating progress')
-        
-        # Calculate progress as percentage
-        total_frames = len(self.current_audio.data)
-        progress = (self.current_frame / total_frames) * 100
-        
-        self.progressbarSlider.setValue(int(progress))
-        
-        if progress >= 100:
-            self.pause()
-            self.current_frame = 0
-            self.playPauseButton.setIcon(self.playIcon)
     
     def reset_player(self):
         self.is_playing = False
