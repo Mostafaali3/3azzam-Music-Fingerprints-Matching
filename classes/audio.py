@@ -21,6 +21,8 @@ class Audio():
         # sf.write('./Alkanas(instruments)_22050.wav', self.data, self.sampling_rate)
     
     def hash_sound(self):
+        self.preprocess_data()
+        self.get_features()
         self.hashing_result = imagehash.phash(self.features) 
     
     '''
@@ -54,6 +56,7 @@ class Audio():
         self.features = stacked_features
         
     def compare(self , hash_to_compare_with):
+        hash_to_compare_with = imagehash.hex_to_hash(hash_to_compare_with)
         hamming_distance = self.hashing_result - hash_to_compare_with
         similarity_score = 1 - hamming_distance / len(self.hashing_result.hash.flatten())
         
