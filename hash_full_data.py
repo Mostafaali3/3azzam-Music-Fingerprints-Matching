@@ -3,7 +3,7 @@ import csv
 from classes.audio import Audio
 import librosa
 
-data_folder = "./full_data"
+data_folder = "./data"
 output_csv = "hashed_music_files.csv"
 
 results = []
