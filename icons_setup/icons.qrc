@@ -11,6 +11,7 @@
     <file>..\icons_setup\icons\img.png</file>
     <file>..\icons_setup\icons\tablePlay.png</file>
     <file>..\icons_setup\icons\tablePause.png</file>
+    <file>..\icons_setup\icons\search.png</file>
 
   </qresource>
 </RCC>

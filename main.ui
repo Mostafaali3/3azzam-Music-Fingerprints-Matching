@@ -1001,7 +1001,7 @@ border-radius: 5px;</string>
 font-weight: bold</string>
                </property>
                <property name="text">
-                <string>You Should Upload Two Songs To Start Mixing !!</string>
+                <string>You Should Browse Two Songs To Start Mixing !!</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -1015,6 +1015,42 @@ font-weight: bold</string>
            </widget>
           </item>
          </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_7">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="searchButton">
+          <property name="styleSheet">
+           <string notr="true">border: 2px solid #ffffff; 
+font-size: 16px;
+border-radius: 5px;
+font-weight: bold;</string>
+          </property>
+          <property name="text">
+           <string>  Search</string>
+          </property>
+          <property name="icon">
+           <iconset resource="icons_setup/icons.qrc">
+            <normaloff>:/icons_setup/icons/search.png</normaloff>:/icons_setup/icons/search.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </widget>
         </item>
         <item>
          <spacer name="verticalSpacer_2">
@@ -1154,7 +1190,7 @@ border-radius: 5px;</string>
 font-weight: bold;</string>
            </property>
            <property name="text">
-            <string>Please, Upload at Least a Song to get Results !!</string>
+            <string>Please, Browse at Least a Song to get Results !!</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>

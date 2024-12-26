@@ -6,6 +6,10 @@ import numpy as np
 class MusicPlayer:
     def __init__(self, audio, progressbarSlider,
                  playPauseButton, replayButton, PlayIcon, PauseIcon):
+        
+        if audio is None:
+            raise ValueError('Audio object must be provided')
+        
         self.__current_audio = audio
         self.loaded = False
         
@@ -41,7 +45,6 @@ class MusicPlayer:
     def current_audio(self, audio):
         if isinstance(audio, Audio):
             self.__current_audio = audio
-            self.loaded = True
             self.reset_player()
             
             # Configure stream (but don't start it)
