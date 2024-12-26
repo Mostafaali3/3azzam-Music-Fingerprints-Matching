@@ -53,8 +53,11 @@ class Audio():
         stacked_features.paste(mfccs_pil, (0, melspectrogram_pil.height))
         self.features = stacked_features
         
-    def compare(self):
-        pass
+    def compare(self , hash_to_compare_with):
+        hamming_distance = self.hashing_result - hash_to_compare_with
+        similarity_score = 1 - hamming_distance / len(self.hashing_result.hash.flatten())
+        
+        return similarity_score
 
 
 # Hashing Implementation Test
