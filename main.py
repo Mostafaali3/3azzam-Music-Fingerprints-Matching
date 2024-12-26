@@ -240,6 +240,7 @@ class MainWindow(QMainWindow):
             self.mixer_error_frame.hide()
             
     def update_table(self):
+        self.controller.mix_audio(self.weight_slider.value()/100)
         self.no_matched_frame.hide()
         self.tableFrame.show()
         self.controller.search()
