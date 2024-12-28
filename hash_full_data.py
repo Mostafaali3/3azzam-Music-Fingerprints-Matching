@@ -15,8 +15,8 @@ for file_name in os.listdir(data_folder):
         audio_data , audio_sr = librosa.load(file_path , mono=True)
         audio_obj = Audio()
         audio_obj.data = audio_data
-        audio_obj.preprocess_data()
-        audio_obj.get_features()
+        # audio_obj.preprocess_data()
+        # audio_obj.get_features()
         audio_obj.hash_sound()
         hash_result = audio_obj.hashing_result
         results.append([file_name, hash_result])
