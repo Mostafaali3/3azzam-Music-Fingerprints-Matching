@@ -4,7 +4,7 @@ from classes.audio import Audio
 import librosa
 
 data_folder = "./data"
-output_csv = "hashed_music_files.csv"
+output_csv = "hashed_music_files_weekend.csv"
 
 results = []
 i = 0

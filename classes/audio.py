@@ -42,10 +42,10 @@ class Audio():
             melspectrogram = librosa.feature.melspectrogram(y=self.data, sr=self.sampling_rate, n_mels=128, fmax=self.sampling_rate//2)
             self.melspectrogram = librosa.power_to_db(melspectrogram, ref=np.max)
 
-    def get_mfccs(self):
-        if self.data is not None:
-            mfccs = librosa.feature.mfcc(y=self.data, sr=self.sampling_rate, n_mfcc=13)
-            self.mfccs = (255 * (mfccs - np.min(mfccs)) / (np.max(mfccs) - np.min(mfccs))).astype(np.uint8)
+    # def get_mfccs(self):
+    #     if self.data is not None:
+    #         mfccs = librosa.feature.mfcc(y=self.data, sr=self.sampling_rate, n_mfcc=13)
+    #         self.mfccs = (255 * (mfccs - np.min(mfccs)) / (np.max(mfccs) - np.min(mfccs))).astype(np.uint8)
     
     # def create_constellation_map(self):
     #     if self.data is not None:
@@ -183,42 +183,58 @@ class Audio():
             
     #         return self.features
 
-    def get_cqt_features(self):
-        if self.data is not None:
-            cqt = librosa.cqt(y=self.data, sr=self.sampling_rate)
-            return librosa.amplitude_to_db(np.abs(cqt))
-        return None
+    # def get_cqt_features(self):
+    #     if self.data is not None:
+    #         cqt = librosa.cqt(y=self.data, sr=self.sampling_rate)
+    #         return librosa.amplitude_to_db(np.abs(cqt))
+    #     return None
 
-    def aggregate_features(self, features, window_size=100):
-        return np.array([np.mean(features[:, i:i+window_size], axis=1) 
-                        for i in range(0, features.shape[1], window_size)])
+    # def aggregate_features(self, features, window_size=100):
+    #     return np.array([np.mean(features[:, i:i+window_size], axis=1) 
+    #                     for i in range(0, features.shape[1], window_size)])
         
-    def get_rhythm_features(self):
-        # Tempo and beat features
-        tempo, beat_frames = librosa.beat.beat_track(y=self.data, sr=self.sampling_rate)
+    # def get_rhythm_features(self):
+    #     # Tempo and beat features
+    #     tempo, beat_frames = librosa.beat.beat_track(y=self.data, sr=self.sampling_rate)
         
-        # Onset strength
-        onset_env = librosa.onset.onset_strength(y=self.data, sr=self.sampling_rate)
+    #     # Onset strength
+    #     onset_env = librosa.onset.onset_strength(y=self.data, sr=self.sampling_rate)
         
-        # Tempogram
-        tempogram = librosa.feature.tempogram(onset_envelope=onset_env, sr=self.sampling_rate)
-        return tempo, beat_frames, tempogram
+    #     # Tempogram
+    #     tempogram = librosa.feature.tempogram(onset_envelope=onset_env, sr=self.sampling_rate)
+    #     return tempo, beat_frames, tempogram
     
-    def get_spectral_features(self):
-        spectral_centroid = librosa.feature.spectral_centroid(y=self.data, sr=self.sampling_rate)
-        spectral_bandwidth = librosa.feature.spectral_bandwidth(y=self.data, sr=self.sampling_rate)
-        spectral_rolloff = librosa.feature.spectral_rolloff(y=self.data, sr=self.sampling_rate)
-        return spectral_centroid, spectral_bandwidth, spectral_rolloff
+    # def get_spectral_features(self):
+    #     spectral_centroid = librosa.feature.spectral_centroid(y=self.data, sr=self.sampling_rate)
+    #     spectral_bandwidth = librosa.feature.spectral_bandwidth(y=self.data, sr=self.sampling_rate)
+    #     spectral_rolloff = librosa.feature.spectral_rolloff(y=self.data, sr=self.sampling_rate)
+    #     return spectral_centroid, spectral_bandwidth, spectral_rolloff
     
-    def get_chroma_features(self):
-        chroma = librosa.feature.chroma_stft(y=self.data, sr=self.sampling_rate)
-        return chroma
+    # def get_chroma_features(self):
+    #     chroma = librosa.feature.chroma_stft(y=self.data, sr=self.sampling_rate)
+    #     return chroma
     
     def compare(self , hash_to_compare_with):
-        hash_to_compare_with = imagehash.hex_to_hash(hash_to_compare_with)
-        hamming_distance = self.hashing_result - hash_to_compare_with
-        similarity_score = 1 - hamming_distance / len(self.hashing_result.hash.flatten())
+        # hash_to_compare_with = imagehash.hex_to_hash(hash_to_compare_with)
+        # hamming_distance = self.hashing_result - hash_to_compare_with
+        # similarity_score = 1 - hamming_distance / len(self.hashing_result.hash.flatten())
         
+        # return similarity_score
+        try:
+            hash_to_compare_with = imagehash.hex_to_hash(hash_to_compare_with)
+        except Exception as e:
+            raise ValueError("Invalid hash format or conversion failed.") from e
+
+        # Ensure the hash lengths are compatible
+        if self.hashing_result.hash.shape != hash_to_compare_with.hash.shape:
+            raise ValueError("Hashes must have the same dimensions for comparison.")
+
+        # Calculate the Hamming distance
+        hamming_distance = self.hashing_result - hash_to_compare_with
+
+        # Normalize to get a similarity score
+        similarity_score = 1 - (hamming_distance / self.hashing_result.hash.size)
+
         return similarity_score
     
     def load_audio(self, file_path):

@@ -274,7 +274,7 @@ QPushButton:hover {
                    <property name="minimumSize">
                     <size>
                      <width>0</width>
-                     <height>80</height>
+                     <height>0</height>
                     </size>
                    </property>
                    <property name="maximumSize">
@@ -1048,7 +1048,7 @@ font-weight: bold;
 margin: 20 0;</string>
           </property>
           <property name="text">
-           <string>  Search</string>
+           <string>Search</string>
           </property>
           <property name="icon">
            <iconset resource="icons_setup/icons.qrc">
@@ -1056,8 +1056,8 @@ margin: 20 0;</string>
           </property>
           <property name="iconSize">
            <size>
-            <width>20</width>
-            <height>20</height>
+            <width>0</width>
+            <height>0</height>
            </size>
           </property>
          </widget>
