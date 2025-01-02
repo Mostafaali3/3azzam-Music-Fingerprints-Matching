@@ -3,7 +3,7 @@
 
 A Desktop program for identifying music by analyzing fingerprints generated from song spectrograms. This tool mimics the functionality of Shazam, enabling efficient and accurate song recognition.
 
-![Image Placeholder](assests/program%20laptop%20mockup.png)
+![Image Placeholder](assets/program%20laptop%20mockup.png)
 
 ## Table of Contents
 
@@ -35,11 +35,11 @@ This project implements a music identification system using Digital Signal Proce
 
 ## Program Preview
 
-![Image Placeholder](assests/program%20screenshot.png)
+![Image Placeholder](assets/program%20screenshot.png)
 
 ## Program Demo
 
-[Watch Video](https://github.com/Mostafaali3/DSP-Music-Similarity-Matching/blob/main/assests/program_preview.mkv)
+[! Program Demo](https://github.com/user-attachments/assets/3f5049d6-e0b3-4ddc-8a55-d3d05be08781)
 
 ## Installation
 
