@@ -1,5 +1,5 @@
 
-# Shazam-Like: Music Fingerprint Desktop App
+# 3AZZAM : A Shazam-Like Music Fingerprint Desktop App
 
 A Desktop program for identifying music by analyzing fingerprints generated from song spectrograms. This tool mimics the functionality of Shazam, enabling efficient and accurate song recognition.
 
