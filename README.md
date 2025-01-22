@@ -11,7 +11,7 @@ A Desktop program for identifying music by analyzing fingerprints generated from
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Features](#features)
-  - [Program Preview](#program-preview)
+  - [Program UI Preview](#program-ui-preview)
   - [Program Demo](#program-demo)
   - [Installation](#installation)
   - [Usage](#usage)
@@ -35,17 +35,17 @@ This project implements a music identification system using Digital Signal Proce
 - Generate similarity scores and display results in a sortable table.
 - Mix two sound files with adjustable weights and treat the combination as a new file.
 
-## Program Preview
+## Program UI Preview
 
 ![Image Placeholder](assets/program%20screenshot.png)
 
 ## Program Demo
 
-[! Program Demo](assets/program_preview.gif)
+![Program Demo](assets/program_preview.gif)
 
 ## Installation
 
-1. Clone the repository:
+1. Clone the repository
 2. Install required dependencies:
     ```bash
     pip install -r requirements.txt
@@ -135,6 +135,7 @@ This project implements a music identification system using Digital Signal Proce
     <sub><b>Ahmed Al-Deeb</b></sub></a>
     </td>
       </tr>
+</table>
 
 ## Acknowledgments
 This project was supervised by Dr. Tamer Basha as part of the Digital Signal Processing course at Cairo University Faculty of Engineering.
