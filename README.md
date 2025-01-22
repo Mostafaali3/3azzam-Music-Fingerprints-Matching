@@ -7,7 +7,7 @@ A Desktop program for identifying music by analyzing fingerprints generated from
 
 ## Table of Contents
 
-- [Shazam-Like Music Fingerprint Desktop App](#shazam-like-music-fingerprint-desktop-app)
+- [3AZZAM : A Shazam-Like Music Fingerprint Desktop App](#3azzam--a-shazam-like-music-fingerprint-desktop-app)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Features](#features)
@@ -19,7 +19,9 @@ A Desktop program for identifying music by analyzing fingerprints generated from
   - [Workflow](#workflow)
     - [Hashing and Preparing Data](#hashing-and-preparing-data)
     - [Actual Program Usage](#actual-program-usage)
+  - [Dependencies](#dependencies)
   - [Contributors ](#contributors-)
+  - [Acknowledgments](#acknowledgments)
 
 ## Introduction
 
@@ -39,7 +41,7 @@ This project implements a music identification system using Digital Signal Proce
 
 ## Program Demo
 
-[! Program Demo](https://github.com/user-attachments/assets/3f5049d6-e0b3-4ddc-8a55-d3d05be08781)
+[! Program Demo](assets/program_preview.gif)
 
 ## Installation
 
@@ -90,6 +92,21 @@ This project implements a music identification system using Digital Signal Proce
    - Use a slider to set weight percentages for mixing two files.
    - Treat the combination as a new query for matching.
 
+## Dependencies
+
+| **Dependency**              | **Description**                                       |
+|------------------------------|-------------------------------------------------------|
+| **Python 3.x**              | Core programming language.                            |
+| **NumPy**           | Numerical computations for signal processing.         |
+| **SciPy**          | Advanced scientific computing and interpolation.      |
+| **PyQt5**         | GUI framework for building desktop applications.      |
+| **sounddevice**     | Audio I/O library for recording and playback.         |
+| **librosa**  | Python library for audio and music analysis.          |
+| **opencv-python** | OpenCV library for real-time computer vision.       |
+| **opencv-contrib-python** | OpenCV with additional modules for extended functionality. |
+| **pillow**         | Python Imaging Library for image processing tasks.    |
+| **ImageHash**       | Library for computing perceptual image hashes.        |
+
 ## Contributors <a name = "Contributors"></a>
 <table>
   <tr>
@@ -118,3 +135,8 @@ This project implements a music identification system using Digital Signal Proce
     <sub><b>Ahmed Al-Deeb</b></sub></a>
     </td>
       </tr>
+
+## Acknowledgments
+This project was supervised by Dr. Tamer Basha as part of the Digital Signal Processing course at Cairo University Faculty of Engineering.
+
+Thank you for using 3AZZAM! If you encounter any issues, feel free to open an issue on GitHub.
