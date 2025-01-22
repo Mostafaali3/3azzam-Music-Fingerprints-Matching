@@ -138,6 +138,6 @@ This project implements a music identification system using Digital Signal Proce
 </table>
 
 ## Acknowledgments
-This project was supervised by Dr. Tamer Basha as part of the Digital Signal Processing course at Cairo University Faculty of Engineering.
+These projects was supervised by Dr. Tamer Basha as part of the Digital Signal Processing course at Cairo University Faculty of Engineering.
 
 Thank you for using 3AZZAM! If you encounter any issues, feel free to open an issue on GitHub.
